@@ -16,7 +16,11 @@ let index = {
       password: $("#password").val(),
       email: $("#email").val()
     }
-    if (checkUsername && validatePassword() && validateEmail()) {
+
+    validateUsername()
+    let passwordResult = validatePassword();
+    let emailResult = validateEmail();
+    if (checkUsername && passwordResult && emailResult) {
       $.ajax({
         type: "POST",
         url: "/auth/joinProc",
@@ -92,7 +96,7 @@ function validateUsername() {
 
 const validateInputPassword = (password) => {
   return password.match(
-      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8.15}$/
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/
   );
 
 };
@@ -136,3 +140,5 @@ const validateEmail = () => {
   }
   return false;
 }
+
+index.init()

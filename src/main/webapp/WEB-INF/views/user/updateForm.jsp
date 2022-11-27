@@ -32,5 +32,5 @@
     <button id="btn-update" class="btn btn-primary">Update</button>
 
 </div>
-<script src="/js/user2.js"></script>
+<script src="/js/user.js"></script>
 <%@ include file="../layout/footer.jsp" %>

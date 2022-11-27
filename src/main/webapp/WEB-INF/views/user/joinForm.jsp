@@ -32,5 +32,5 @@
     <button id="btn-save" class="btn btn-primary">Sign-up</button>
 
 </div>
-<script src="/js/user2.js" type="text/javascript"></script>
+<script src="/js/user.js" type="text/javascript"></script>
 <%@ include file="../layout/footer.jsp" %>
