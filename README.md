@@ -35,7 +35,40 @@
 </div>
 
 ## 프로젝트 기능
-### 1. 회원가입 API 작성
+### view 구성
+### 1. 회원
+**Layout**
+- header.jsp - 상단의 메뉴바 구성
+- footer.jsp - 하단의 페이지 정보를 표시할 수 있도록 구성
+
+**User**
+- joinForm.jsp - 회원가입을 하는 폼으로 사용
+- loginForm.jsp - 로그인을 하는 폼으로 사용
+- updateForm.jsp - 회원 정보를 수정하는 폼으로 사용
+
+**Js**
+- user.js - 사용자 정보에 대한 validation과 회원 가입, 회원 정보 업데이트시에 동작
+
+### 2. 게시글 
+**JSP**
+- index.jsp - 게시글 리스트 출력
+- detail.jsp - 특정 게시글을 눌렀을 경우, 글 정보 출력
+- saveForm.jsp - 게시글 작성 시 동작
+- updateForm.jsp - 존재하는 게시글의 내용 수정 시 동작
+
+**Js**
+- board.js - 각 글에 관련된 기능 API 호출
+
+### 3. 댓글
+**JSP**
+- detail.jsp - 댓글 입력 부분과 댓글 리스트 목록 출력
+
+**Js**
+- board.js - 각 댓글 관련 저장, 삭제 기능
+
+### service 구성
+### 1. 회원
+### 1-1. 회원가입 API 작성
 **POST - /auth/joinProc**
 - RequestBody로 회원가입하는 아이디, 비밀번호, 이메일주소 받기
 - JS로 아이디 유효성 검사(4글자 이상)
@@ -47,16 +80,44 @@
 - PathVariable로 검색할 유저네임 받기
 - UserRepository에서 해당 유저네임이 있는지 유효성 검사
 
-### 2. 로그인 API 작성
+### 1-2. 로그인 API 작성
 - spring-security(PrincipleDetail)설정으로 아이디, 비밀번호 받기
 - 로그인 성공 후 index.jsp 페이지로 이동
 
-### 3. 회원 정보 수정 API 작성
+### 1-3. 회원 정보 수정 API 작성
 **PUT - /user**
 - RequestBody로 변경할 비밀번호, 이메일주소 받기
 - 아이디는 수정할 수 가 없다.
 - 회원 정보 수정 후 index.jsp 페이지로 이동
+
+### 2. 게시글
+### 2-1. 게시글 작성
+**POST - /api/board**
+- @RequestBody로 게시글 제목, 카테고리와 글 내용 받기
+- Users와 N:1 관계를 맺고 있다.
+
+### 2-2. 게시글 수정
+**PUT - /api/board/{id}**
+- @PathVariable로 게시글 boardId 받기
+- @RequestBody로 수정할 게시글 제목과 글 내용 받기
+- 카테고리는 고정 값으로 수정 할 수 없다.
+
+### 2-3. 게시글 삭제
+**PUT - /api/board/{id}**
+- @PathVariable로 게시글 boardId 받기
+
+### 3. 댓글
+### 3-1. 댓글 작성
+**POST - /api/board/{boardId}/reply**
+- @RequestBody로 userId, boardId 와 reply-content 받기
+
+### 3-2. 댓글 삭제
+**DELETE - /api/board/reply/{replyId}**
+- @PathVariable로 댓글 replyId 받기
+- 댓글을 작성한 사용자만 삭제 할 수 있다.
+
 ## 프로젝트 진행도
+
 ## 프로젝트 완성도 높이기
 
 
