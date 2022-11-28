@@ -1,6 +1,7 @@
 package com.nikitoe.board.controller;
 
 import com.nikitoe.board.config.auth.PrincipalDetail;
+import com.nikitoe.board.dto.ReplySaveRequestDto;
 import com.nikitoe.board.dto.ResponseDto;
 import com.nikitoe.board.model.Board;
 import com.nikitoe.board.service.BoardService;
@@ -22,9 +23,7 @@ public class BoardApiController {
     private final BoardService boardService;
 
     @PostMapping("/api/board")
-    public ResponseDto<Integer> save(@RequestBody Board board,
-        @AuthenticationPrincipal PrincipalDetail principalDetail
-    ) {
+    public ResponseDto<Integer> save(@RequestBody Board board, @AuthenticationPrincipal PrincipalDetail principalDetail) {
         boardService.writePost(board, principalDetail.getUser());
         return new ResponseDto<>(HttpStatus.OK, 1);
     }
@@ -39,6 +38,17 @@ public class BoardApiController {
     public ResponseDto<Integer> update(@PathVariable int id, @RequestBody Board board) {
         boardService.updatePost(id, board);
         return new ResponseDto<>(HttpStatus.OK, 1);
+    }
+
+    @PostMapping("/api/board/{boardId}/reply")
+    public ResponseDto<Integer> saveReply(@RequestBody ReplySaveRequestDto reply){
+        boardService.writeReply(reply);
+        return new ResponseDto<>(HttpStatus.OK,1);
+    }
+    @DeleteMapping("/api/board/reply/{replyId}")
+    private ResponseDto<Integer> deleteReply(@PathVariable long replyId){
+        boardService.deleteReply(replyId);
+        return new ResponseDto<>(HttpStatus.OK,1);
     }
 
 }
