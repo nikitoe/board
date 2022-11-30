@@ -37,12 +37,13 @@ dependencies {
     // JASPER
     implementation 'org.springframework.security:spring-security-taglibs'
 
-    // Swagger
-    implementation "io.springfox:springfox-boot-starter:3.0.0"
-    implementation "io.springfox:springfox-swagger-ui:3.0.0"
+//    // Swagger
+//    implementation "io.springfox:springfox-boot-starter:3.0.0"
+//    implementation "io.springfox:springfox-swagger-ui:3.0.0"
+//
+//    // Actuator
+//    implementation "org.springframework.boot:spring-boot-starter-actuator:2.7.5"
 
-    // Actuator
-    implementation "org.springframework.boot:spring-boot-starter-actuator:2.7.5"
 }
 
 tasks.named('test') {
