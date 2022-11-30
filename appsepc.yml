@@ -1,0 +1,17 @@
+version: 0.0
+os: linux
+# destination에 아티팩트가 unzip된 결과가 생성 될 디텍토리명을 넣어준다.
+files:
+  - source: /
+    destination: /home/ec2-user/build/
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ec2-user
+    group: ec2-user
+
+hooks:
+  AfterInstall:
+    - location: startup.sh
+      timeout: 60
+      runas: ec2-user
