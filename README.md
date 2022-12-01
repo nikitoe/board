@@ -116,10 +116,25 @@
 - @PathVariable로 댓글 replyId 받기
 - 댓글을 작성한 사용자만 삭제 할 수 있다.
 
-## 프로젝트 진행도
-
 ## 프로젝트 완성도 높이기
+### AWS 서비스를 활용한 CI/CD
+- EC2 인스턴스 백서버를 구축한다.
+- buildspec.yml, appsepc.yml과 startup.sh 파일을 생성한다. 
+- Codepipeline 을 구축하여, CodeBuild 와 CodeDeploy를 진행한다.
+- EC2 인스턴스에 최종적으로 배포가 되어 서비스를 이용 할 수있다.
 
+**배운 점**
+- 프론트엔드와, 백엔드를 동시에 개발할 수 있어서 프로젝트와 완성도가 높았다.
+- 처음 프로젝트를 구축 시, GitHub의 pull-request-templates 및 tag 설정.
+- 자바스크립트를 활용한 이벤트 발생 및 유효성 검사 기능.
+- GET, POST, PUT, DELETE 등 REST API를 활용한 점.
+- 배포 시, 전에 사용했던 docker 컨테이너 형식의 배포 방식과 다른 AWS Codepipeline, Codebuild와 Codedeploy를 이용 한 점.
+- 배포 시, 변경 사항이있으면 하나나 고쳐서 했던 예전과는 다르게, AWS CI/CD 사용해서 수고를 덜은 점.
 
+**업데이트 하고싶은 사항**
+- [x] CI/CD 환경 구축하기
+- [ ] 다양한 CI/CD 환경 구축하기
+- [ ] OAuth 2.0 적용 하기
+- [ ] 챗 서버 구축하기
 
 
