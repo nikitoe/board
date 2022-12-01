@@ -34,6 +34,9 @@
 <img src="https://img.shields.io/badge/Amazon S3-569A31?style=for-the-badge&logo=Amazon S3&logoColor=white">
 </div>
 
+## CI/CD 구조
+![img](https://user-images.githubusercontent.com/36691759/205060109-29730385-ca9e-40b1-9e8e-d68d0b70c09e.png)
+
 ## 프로젝트 기능
 ### view 구성
 ### 1. 회원
@@ -118,6 +121,7 @@
 
 ## 프로젝트 완성도 높이기
 ### AWS 서비스를 활용한 CI/CD
+![img_1](https://user-images.githubusercontent.com/36691759/205060150-7db72ad7-16a8-4de2-95d0-759ceddb1935.png)
 - EC2 인스턴스 백서버를 구축한다.
 - buildspec.yml, appsepc.yml과 startup.sh 파일을 생성한다. 
 - Codepipeline 을 구축하여, CodeBuild 와 CodeDeploy를 진행한다.
